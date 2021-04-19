@@ -13,3 +13,16 @@ The `hwnd` will make the specified window handle the parent.
 Setting `Effects` to false will disable the changing of strike, underline, and other styles.
 
 The return `fontObj` is generally meant for future use to re-open the dialog with the settings last used.
+
+## fontObj Properties
+
+```
+fontObj.str        = string to use with AutoHotkey to set GUI values - see examples
+fontObj.size       = size of font
+fontObj.name       = font name
+fontObj.bold       = true/false
+fontObj.italic     = true/false
+fontObj.strike     = true/false
+fontObj.underline  = true/false
+fontObj.color      = 0xRRGGBB
+```
