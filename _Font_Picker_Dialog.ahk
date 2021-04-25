@@ -67,7 +67,7 @@ FontSelect(fObj:="", hwnd:=0, Effects:=true) {
     If (StrLen(fObj.name) > 31)
         throw Error("Font name length exceeds 31 characters.")
         
-    LOGFONT := Buffer(!u ? 60 : 96,0) ; LOGFONT size based on IsUnicode, not A_PtrSize
+    LOGFONT := BufferAlloc(!u ? 60 : 96,0) ; LOGFONT size based on IsUnicode, not A_PtrSize
     hDC := DllCall("GetDC","UPtr",0)
     LogPixels := DllCall("GetDeviceCaps","UPtr",hDC,"Int",90)
     Effects := 0x041 + (Effects ? 0x100 : 0)
@@ -80,7 +80,7 @@ FontSelect(fObj:="", hwnd:=0, Effects:=true) {
     NumPut "uint", fObj.bold, "char", fObj.italic, "char", fObj.underline, "char", fObj.strike, LOGFONT, 16
     StrPut(fObj.name,LOGFONT.ptr+28)
     
-    CHOOSEFONT := Buffer((p=8)?104:60,0)
+    CHOOSEFONT := BufferAlloc((p=8)?104:60,0)
     NumPut "UInt", CHOOSEFONT.size,     CHOOSEFONT
     NumPut "UPtr", hwnd,                CHOOSEFONT, p
     NumPut "UPtr", LOGFONT.ptr,         CHOOSEFONT, (p*3)
