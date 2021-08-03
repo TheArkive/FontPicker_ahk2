@@ -1,6 +1,9 @@
 # FontPicker_ahk2
 Font Picker for AHK v2
 
+originally posted by maestrith 
+https://autohotkey.com/board/topic/94083-ahk-11-font-and-color-dialogs/
+
 ## FontSelect()
 ```
 fontObj := FontSelect(fontObject:="", hwnd:=0, Effects := true)
